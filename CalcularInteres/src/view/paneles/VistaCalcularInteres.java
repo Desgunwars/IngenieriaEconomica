@@ -8,9 +8,11 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.*;
 
-public class VistaCalcularInteres extends JFrame implements ActionListener{
+public class VistaCalcularInteres extends JFrame implements ActionListener, ItemListener{
     
     private GestorClases miGestorDeClases;
     private JPanel miPanel;
@@ -22,6 +24,7 @@ public class VistaCalcularInteres extends JFrame implements ActionListener{
     private JTextField miFielVFinal;
     private JButton btnCalcularInteres;
     private JButton btnAtras;
+    private JComboBox<String> Intereses;
     
     public VistaCalcularInteres(){
         setSize(400, 350); // Dimenciones de la ventana
@@ -37,6 +40,19 @@ public class VistaCalcularInteres extends JFrame implements ActionListener{
         add(miPanel);
         
         
+        Intereses = new JComboBox<String>();
+        Intereses.setBounds(40, 50 , 220, 25);
+        Intereses.setOpaque(false);
+        Intereses.addItem("Seleccione Una Operacion");
+        Intereses.addItem("Interes Simple");
+        Intereses.addItem("Interes Compuesto");
+        
+        Intereses.addItemListener(this);
+        
+        miPanel.add(Intereses);
+        
+        
+        
         /*---------- Etiquetas ----------*/
         /*---- Titulo ----*/
         miTitulo = new JLabel();
@@ -48,44 +64,6 @@ public class VistaCalcularInteres extends JFrame implements ActionListener{
         miTitulo.setFont(new Font("Time New Roman", Font.BOLD, 16));
         miPanel.add(miTitulo);
         
-        /*----Valor Inicial-------*/ 
-        vInicial = new JLabel();
-        vInicial.setText("Ingrese Valor Inicial");
-        vInicial.setForeground(Color.BLACK);
-        vInicial.setHorizontalAlignment(SwingConstants.LEFT);
-        vInicial.setBounds(30, 70, 150, 25);
-        vInicial.setFont(new Font("Time New Roman", Font.ITALIC, 14));
-        miPanel.add(vInicial);
-        
-        /*------- Text Fiel Valor Inicial ------------*/
-        miFielVInicial = new JTextField(20);
-        miFielVInicial.setLayout(null);
-        miFielVInicial.setBorder(BorderFactory.createBevelBorder(12));
-        miFielVInicial.setOpaque(false);
-        miFielVInicial.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.GRAY));
-        miFielVInicial.setBounds(160, 70, 150, 20);
-   
-        miPanel.add(miFielVInicial);
-        
-         /*----Valor Inicial-------*/ 
-        vFinal = new JLabel();
-        vFinal.setText("Ingrese Valor Final");
-        vFinal.setForeground(Color.BLACK);
-        vFinal.setHorizontalAlignment(SwingConstants.LEFT);
-        vFinal.setBounds(30, 120, 150, 25);
-        vFinal.setFont(new Font("Time New Roman", Font.ITALIC, 14));
-        miPanel.add(vFinal);
-        
-        /*------- Text Fiel Valor Inicial ------------*/
-        miFielVFinal = new JTextField(20);
-        miFielVFinal.setLayout(null);
-        miFielVFinal.setBorder(BorderFactory.createBevelBorder(12));
-        miFielVFinal.setOpaque(false);
-        miFielVFinal.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.GRAY));
-        //miFielVFinal.setBorder(null);
-        miFielVFinal.setBounds(160, 120, 150, 20);
-        
-        miPanel.add(miFielVFinal);
         
         
         /*-------- Bottons -------------*/
@@ -128,6 +106,18 @@ public class VistaCalcularInteres extends JFrame implements ActionListener{
         }
         if(e.getSource() == btnAtras){
             dispose();
+        }
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        String intereses = Intereses.getSelectedItem().toString();
+        if(intereses == "Seleccione Una Operacion"){
+            btnCalcularInteres.setEnabled(false);
+        }else{
+            if(e.getSource() == Intereses){
+                btnCalcularInteres.setEnabled(true);
+            }
         }
     }
     

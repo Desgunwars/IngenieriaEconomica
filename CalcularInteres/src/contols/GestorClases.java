@@ -7,8 +7,10 @@ import view.paneles.VistaCalcularTasaInteres;
 import view.paneles.VistaCalcularTasaInteresF1;
 import model.TasaInteres;
 import view.paneles.VistaCalcularTasaInteresF2;
+import view.paneles.VistaCalcularTiempo;
 import view.paneles.VistaCalcularValorFinal;
 import view.paneles.VistaCalcularValorPresente;
+import view.paneles.VistaTiempo;
 
 public class GestorClases {
 
@@ -25,6 +27,8 @@ public class GestorClases {
     private VistaCalcularTasaInteresF2 miVistaFormula2;
     private VistaCalcularValorPresente miVistaValorPresente;
     private VistaCalcularValorFinal miVistaValorFinal;
+    private VistaTiempo miVistaCalcularTiempo;
+    private VistaCalcularTiempo miVistaCalculoTiempo;
     public TasaInteres miCalTasaInteres;
 
     /*  Metodos Ventana Principal */
@@ -110,6 +114,30 @@ public class GestorClases {
         this.miVistaValorFinal = miVistaValorFinal;
     }
     /*------------------------------------------------------------------------------------------*/
+    
+    /*      Vista Calcular Tiempo      */
+    
+    public VistaTiempo getVistaCalcularTiempo(){
+        return miVistaCalcularTiempo;
+    }
+    
+    public void setVistaCalcularTiempo(VistaTiempo miVistaTiempo) {
+        this.miVistaCalcularTiempo = miVistaTiempo;
+    }
+    
+    /*------------------------------------------------------------------------------------------*/
+    
+    /*              Vista Para Calcular Tiempo      */
+    
+    public VistaCalcularTiempo getVistaCalculoTiempo(){
+        return miVistaCalculoTiempo;
+    }
+    
+    public void setVistaCalculoTimpo(VistaCalcularTiempo miVistaCalcularTiempo) {
+        this.miVistaCalculoTiempo = miVistaCalcularTiempo;
+    }
+    
+    /*-------------------------------------------------------------------------------------------*/
     public TasaInteres getCalTasaDeInteres() {
         return miCalTasaInteres;
     }
@@ -142,6 +170,14 @@ public class GestorClases {
     private void mostrarVistaCalularValorFinal(){
         miVistaValorFinal.setVisible(true);
     }
+    
+    private void mostrarVistaCalculoTiempo(){
+        miVistaCalculoTiempo.setVisible(true);
+    }
+    
+    private void mostrarVistaCalcularTiempo(){
+        miVistaCalcularTiempo.setVisible(true);
+    }
     /*
     
     Terminar de dividir los calculos en los distintos archivos
@@ -162,6 +198,9 @@ public class GestorClases {
                 break;
             case "Calcular Valor Final":
                 mostrarVistaCalularValorFinal();
+                break;
+            case "Calcular Tiempo":
+                mostrarVistaCalculoTiempo();
                 break;
         }
 
@@ -256,8 +295,17 @@ public class GestorClases {
             float Vfinal = Float.parseFloat(Vf);
             float Vpresente = Float.parseFloat(Vp);
             float tInteres = Float.parseFloat(tI);
-            return Float.toString(((Vpresente / Vfinal) - 1) / tInteres);
+            if (Vfinal > 0 && Vpresente > 0 && tInteres > 0) {
+                return Float.toString(((Vpresente / Vfinal) - 1) / tInteres);
+            } else {
+                return "No puede ingresar datos negativos o iguales a cero";
+            }
+            
         }
     }
+
+   
+
+    
 
 }

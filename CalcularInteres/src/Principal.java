@@ -8,6 +8,8 @@ import view.paneles.VistaCalcularTasaInteresF1;
 import view.paneles.VistaCalcularTasaInteresF2;
 import view.paneles.VistaCalcularValorPresente;
 import view.paneles.VistaCalcularValorFinal;
+import view.paneles.VistaTiempo;
+import view.paneles.VistaCalcularTiempo;
 
 public class Principal {
     
@@ -19,6 +21,8 @@ public class Principal {
     VistaCalcularTasaInteresF2 miVistaFormula2;
     VistaCalcularValorPresente miVistaValorPresente;
     VistaCalcularValorFinal miVistaValorFinal;
+    VistaTiempo miVistaTiempo;
+    VistaCalcularTiempo miVistaCalcularTiempo;
     Interes miInteres;
     TasaInteres miCalTasaInteres;
     
@@ -37,6 +41,8 @@ public class Principal {
         miVistaFormula2 = new VistaCalcularTasaInteresF2();
         miVistaValorPresente = new VistaCalcularValorPresente();
         miVistaValorFinal = new VistaCalcularValorFinal();
+        miVistaTiempo = new VistaTiempo();
+        miVistaCalcularTiempo = new VistaCalcularTiempo();
         miInteres = new Interes();
         miCalTasaInteres = new TasaInteres();
 
@@ -50,6 +56,8 @@ public class Principal {
         miVistaFormula2.setGestorDeClases(miGestorClases);
         miVistaValorPresente.setGestorDeClases(miGestorClases);
         miVistaValorFinal.setGestorDeClases(miGestorClases);
+        miVistaCalcularTiempo.setGestorDeClases(miGestorClases);
+        miVistaTiempo.setGestorDeClases(miGestorClases);
         miCalTasaInteres.setGestorDeClases(miGestorClases);
         
         
@@ -61,8 +69,12 @@ public class Principal {
         miGestorClases.setVistaCalcularInteresFormula2(miVistaFormula2);
         miGestorClases.setVistaCalcularValorPresente(miVistaValorPresente);
         miGestorClases.setVistaCalcularValorFinal(miVistaValorFinal);
+        miGestorClases.setVistaCalcularTiempo(miVistaTiempo);
+        miGestorClases.setVistaCalculoTimpo(miVistaCalcularTiempo);
         miGestorClases.setInteres(miInteres);
         miGestorClases.setCalInteres(miCalInteres);
+        
+
         // Venetana Visible
         miVentanaPrincipal.setVisible(true);
     }

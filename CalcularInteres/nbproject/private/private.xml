@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/view/paneles/VistaCalcularValorPresente.java</file>
+            <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/view/paneles/VistaTiempo.java</file>
+            <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/view/paneles/VistaCalcularInteres.java</file>
             <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/Principal.java</file>
-            <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/view/paneles/VistaCalcularValorFinal.java</file>
             <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/contols/GestorClases.java</file>
+            <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/view/paneles/VistaCalcularTasaInteres.java</file>
             <file>file:/C:/Cursos/Java/Fundamentos/CalcularInteres/src/view/VentanaPrincipal.java</file>
         </group>
     </open-files>
